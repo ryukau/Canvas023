@@ -18,7 +18,7 @@ class Circle {
     canvas.context.fillStyle = this.fill
     canvas.drawPoint(this.position, this.radius)
 
-    canvas.context.strokeStyle = "#444444"
+    canvas.context.strokeStyle = "rgba(68, 68, 68, 0.5)"
     canvas.drawLine(this.position, this.center)
   }
 
@@ -140,7 +140,7 @@ function draw() {
 function makeCircles() {
   var circles = []
   var minScreenLength = getMinScreenLength() / 3
-  for (var i = 0; i < 1024; ++i) {
+  for (var i = 0; i < 256; ++i) {
     circles.push(new Circle(canvas, this.origin, minScreenLength))
   }
   return circles
