@@ -56,6 +56,7 @@ class Mouse {
     this.canvas.addEventListener("mousedown", this, false)
     this.canvas.addEventListener("mousemove", this, false)
     this.canvas.addEventListener("mouseup", this, false)
+    this.canvas.addEventListener("mouseout", this, false)
   }
 
   handleEvent(event) {
@@ -67,7 +68,9 @@ class Mouse {
         this.onMouseMove(event)
         break
       case "mouseup":
+      case "mouseout":
         this.onMouseUp(event)
+        break
     }
   }
 
@@ -78,7 +81,9 @@ class Mouse {
   }
 
   onMouseDown(event) {
-    this.isMouseDown = true
+    if (event.button !== 2) {
+      this.isMouseDown = true
+    }
     this.getMousePosition(event)
   }
 
